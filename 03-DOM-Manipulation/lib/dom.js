@@ -62,8 +62,9 @@ const summarizePoints = () => {
 
 
 // Ex 8. Change the background color of all `<th>` cells to
-document.querySelectorAll('th').style.backgroundColor = "#DDF4FF"
-
+subtitles.forEach(element => {
+  element.style.backgroundColor = "#DDF4FF"
+});
 
 // Ex 9. Remove the "Email:" label from the DOM
 
