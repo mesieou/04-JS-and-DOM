@@ -67,7 +67,7 @@ subtitles.forEach(element => {
 });
 
 // Ex 9. Remove the "Email:" label from the DOM
-
+document.querySelector("label").remove()
 
 
 
