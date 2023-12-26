@@ -15,27 +15,32 @@ import runChallenges from "../spec/examiner.js";
 //       Make the function getEmail() return it
 const getEmail = () => {
   // TODO: return the email
+  return document.querySelector("#email").value
 };
 
 // /!\ DO NOT CHANGE THIS LINE - TEST PURPOSES
 const borisesEmail = getEmail();
 
 // Ex 2. Change the content of the email input by writing your own email address
-
+document.querySelector("#email").value = "mesieou@gmail.com"
 
 // Ex 3. Replace the email hint (next to the input) with 'This is my email now'
 //       The text should be emphasized using a <strong> tag
-
+document.querySelector("#email-hint").innerHTML = "<strong>This is my email now</strong>"
 
 
 // Ex 4. Add the .blue CSS class to the th elements
-
+let subtitles = document.querySelectorAll("th")
+subtitles.forEach(element => {
+  element.classList.add("blue")
+});
 
 
 // Ex 5. Count the number of table body rows there are
 //       Make the function teamCount() return it
 const teamCount = () => {
   // TODO: return the number of teams
+  return document.querySelectorAll("tr").length - 1
 };
 
 // /!\ DO NOT CHANGE THIS LINE - TEST PURPOSES
@@ -43,18 +48,21 @@ const teamCountBeforeAddition = teamCount();
 
 // Ex 6. Say there is a 15th team added to the table.
 //       Add a row at the bottom, this new team should have zero points.
-
+document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr><td>15</td><td>Biarritz Olympique </td><td>0</td></tr>')
 
 
 // Ex 7. Write some code to sum all points given to all teams
 //       Make the function summarizePoints() return it
 const summarizePoints = () => {
   // TODO: return the sum
+  const pointsNode = document.querySelectorAll('td:nth-child(3)');
+  const pointsArray = Array.from(pointsNode)
+  return pointsArray.reduce((accum, value) => accum + parseInt(value.innerHTML, 10), 0)
 };
 
 
-// Ex 8. Change the background color of all `<th>` cells to #DDF4FF
-
+// Ex 8. Change the background color of all `<th>` cells to
+document.querySelectorAll('th').style.backgroundColor = "#DDF4FF"
 
 
 // Ex 9. Remove the "Email:" label from the DOM
