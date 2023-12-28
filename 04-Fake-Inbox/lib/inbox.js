@@ -37,14 +37,14 @@ const appendMessageToDom = (message) => {
 const refresh = () => {
   // TODO: Implement the global refresh logic. If there is a new message,
   //       append it to the DOM. Update the unread counter in title as well.
-  if (newMessage()) {
-    const countResult = document.querySelector('#count').textContent
-    const countString = countResult.match(/\d+/)[0]
+  if (hasNewMessage()) {
+    let countResult = document.querySelector('#count')
+    let countString = countResult.textContent.match(/\d+/)[0]
     let countInt = parseInt(countString, 10)
     let newCountInt = countInt + 1
 
-    appendMessageToDom()
-    countResult.textConent = `(${newCountInt})`
+    appendMessageToDom(newMessage())
+    countResult.textContent = `(${newCountInt})`
   }
 };
 
