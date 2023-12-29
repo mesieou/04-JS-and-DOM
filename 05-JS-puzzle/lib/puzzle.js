@@ -29,6 +29,11 @@ const moveTile = (tile) => {
 
 const checkIfPlayerWins = () => {
   // TODO: Check if player has won
+  const array = Array.from(tiles).map(elem => elem.textContent);
+  if (array.slice(0,-1).every((num, index) => num == index + 1)) {
+    console.log('Player wins!');
+    alert('Won, contrats!');
+  }
 };
 
 // Add event listener on each tile - Do not change the following
