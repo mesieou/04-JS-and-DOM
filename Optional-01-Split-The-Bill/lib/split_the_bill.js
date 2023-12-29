@@ -18,8 +18,30 @@ const splitTheBill = (group) => {
 
 const updatePriceList = () => {
   // TODO 2: Call the `splitTheBill(group)` function and display the results of what everyone needs to pay in the HTML
-}
+  const group = {
+    "john"  : 120,
+    "paul"  :  30,
+    "ringo" : 150,
+  }
 
+  const result = splitTheBill(group)
+  console.log(result)
+  const rows = document.querySelectorAll('.amount-payable tr')
+  console.log(rows)
+  console.log(rows)
+
+  console.log(Object.keys(result)[0])
+  console.log(Object.values(result)[0])
+
+  rows.forEach((row, index) => {
+    row.innerHTML = `
+    <tr>
+     <th scope="row">${Object.keys(result)[index]}</th>
+     <td>${-Object.values(result)[index]}</td>
+    </tr>
+    `
+  });
+}
 // Do not remove these lines:
 if (typeof window === "object") {
   document.addEventListener("DOMContentLoaded", () => {
