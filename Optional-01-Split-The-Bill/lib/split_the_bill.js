@@ -6,7 +6,14 @@ import runChallenges from "../spec/split_the_bill_examiner.js";
 
 const splitTheBill = (group) => {
   // TODO 1: Implement the function and return an Object
+  const arrayOfValues = Object.values(group);
+  const payableAmount = arrayOfValues.reduce((accum, value) => accum + value, 0)
+  const payableAmountPerPerson = payableAmount / arrayOfValues.length
 
+  let arrayGroup = Object.entries(group).map(([key, value]) => {
+    [key, value - payableAmountPerPerson]
+  })
+  return Object.fromEntries(arrayGroup)
 };
 
 const updatePriceList = () => {
