@@ -11,7 +11,7 @@ const splitTheBill = (group) => {
   const payableAmountPerPerson = payableAmount / arrayOfValues.length
 
   let arrayGroup = Object.entries(group).map(([key, value]) => {
-    [key, value - payableAmountPerPerson]
+    return [key, value - payableAmountPerPerson]
   })
   return Object.fromEntries(arrayGroup)
 };
